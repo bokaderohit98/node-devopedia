@@ -1,0 +1,103 @@
+<div class="sidebar" data-color="purple" data-image="/img/dashboard/sidebar.jpg">
+  <div class="logo">
+    <a href="#" class="simple-text"><i class="material-icons">computer</i>&nbsp;&nbsp;Devopedia</a>
+  </div>
+  <!-- Sidebar for admin -->
+  {{#if user.isAdmin}}
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="active">
+          <a href="/admin/dashboard"><i class="material-icons">dashboard</i><p>Dashboard</p></a>
+        </li>
+        <li>
+          <a href="/admin/messages"><i class="material-icons">message</i><p>Message</p></a>
+        </li>
+        <li>
+          <a href="/admin/students"><i class="material-icons">book</i><p>Students</p></a>
+        </li>
+        <li>
+          <a href="/admin/mentors"><i class="material-icons">school</i><p>Mentors</p></a>
+        </li>
+        <li>
+          <a href="/course"><i class="material-icons">description</i><p>Approved Courses</p></a>
+        </li>
+        <li>
+          <a href="/course/unapproved"><i class="material-icons"><i class="material-icons">indeterminate_check_box</i></i><p>Unapproved Courses</p></a>
+        </li>
+        <li>
+          <a href="/admin/course-request"><i class="material-icons">note_add</i><p>Course Requests</p></a>
+        </li>
+        <li>
+          <a href="/admin/edit-request"><i class="material-icons">create</i><p>Edit Requests</p></a>
+        </li>
+        <li>
+          <a href="/admin/logout"><i class="material-icons">exit_to_app</i><p>Logout</p></a>
+        </li>
+      </ul>
+    </div>
+  {{/if}}
+
+  <!-- Sidebar for student -->
+  {{#if user.isStudent}}
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="active">
+          <a href="/student/dashboard"><i class="material-icons">dashboard</i><p>Dashboard</p></a>
+        </li>
+        <li>
+          <a class="nav-link" href="/student/cart/{{user._id}}"><i class="material-icons">add_shopping_cart</i><p>My Cart</p></a>
+        </li>
+        <li>
+          <a href="/student/mentors"><i class="material-icons">school</i><p>Mentors</p></a>
+        </li>
+        <li>
+          <a href="/course"><i class="material-icons">description</i><p>Courses</p></a>
+        </li>
+        <li>
+          <a href="/course/my-courses"><i class="material-icons text-gray"><i class="material-icons">bookmark</i></i><p>My Courses</p></a>
+        </li>
+        <li>
+          <a href="#" data-toggle="modal" data-target="#courseRequestModal"><i class="material-icons">note_add</i><p>Request a Course</p></a>
+        </li>
+        <li>
+          <a href="/student/logout"><i class="material-icons">exit_to_app</i><p>Logout</p></a>
+        </li>
+      </ul>
+    </div>
+  {{/if}}
+
+  <!-- Sidebar for mentor -->
+  {{#if user.isMentor}}
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="active">
+          <a href="/mentor/dashboard"><i class="material-icons">dashboard</i><p>Dashboard</p></a>
+        </li>
+        <li>
+          <a href="/mentor/profile"><i class="material-icons">person</i><p>Profile</p></a>
+        </li>
+        <li>
+          <a href="/mentor/earnings"><i class="material-icons">monetization_on</i><p>Earnings</p></a>
+        </li>
+        <li>
+          <a href="/course"><i class="material-icons">description</i><p>Courses</p></a>
+        </li>
+        <li>
+          <a href="/course/my-courses"><i class="material-icons"><i class="material-icons">bookmark</i></i><p>My Courses</p></a>
+        </li>
+        <li>
+          <a href="/course/add"><i class="material-icons"><i class="material-icons">note_add</i></i><p>Add New Course</p></a>
+        </li>
+        <li>
+          <a href="/mentor/course-request"><i class="material-icons"><i class="material-icons">receipt</i></i><p>Course Requests</p></a>
+        </li>
+        <li>
+          <a href="/mentor/edit-request"><i class="material-icons">create</i><p>My Edit Requests</p></a>
+        </li>
+        <li>
+          <a href="/mentor/logout"><i class="material-icons">exit_to_app</i><p>Logout</p></a>
+        </li>
+      </ul>
+    </div>
+  {{/if}}
+</div>
