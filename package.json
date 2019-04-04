@@ -1,0 +1,34 @@
+{
+  "name": "devopedia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "nodemon server/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "email-verification": "^0.4.6",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.2.1",
+    "lodash": "^4.17.5",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.0.10",
+    "nodejs": "0.0.0",
+    "nodemailer": "^4.6.3",
+    "nodemailer-express-handlebars": "^3.0.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "randomstring": "^1.1.5",
+    "underscore": "^1.8.3",
+    "urlencode": "^1.1.0",
+    "valid-url": "^1.0.9"
+  }
+}
