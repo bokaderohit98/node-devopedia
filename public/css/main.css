@@ -1,0 +1,95 @@
+.particles-container {
+  background: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  z-index: 20;
+}
+
+.particles-container-signup {
+  background: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  z-index: 1;
+}
+
+.particles-container-main-panel {
+  background-image: url('/img/dashboard/main.jpg');
+  position: fixed;
+  z-index: -2;
+  right: 0;
+  top: 0;
+  width: 100%;
+  -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  height: 100%;
+}
+
+.card-vid {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-vid iframe {
+  position: absolute;
+  border: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-fab {
+  padding: 12px;
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+  border-radius: 50%;
+  border: 0;
+}
+
+.btn-round {
+  border-radius: 50%;
+  padding: 0.7em;
+  background: none;
+  border: 0;
+}
+
+.btn-round-max {
+  width: 80%;
+  border-radius: 50px;
+}
+
+.badge {
+  background: #F44336;
+  text-align: center;
+  margin: 8px 16px 8px 16px;
+  position: relative;
+  left: 75%;
+}
+
+.cart-img {
+  padding: 1em;
+  margin: 1em;
+}
