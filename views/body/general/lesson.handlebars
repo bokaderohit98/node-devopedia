@@ -1,0 +1,18 @@
+<div class="col-md-12">
+  <div class="card-vid">
+    <iframe src="{{lesson.video}}"></iframe>
+  </div>
+  <div class="card">
+    <div class="card-body" style="margin: 2em;">
+      {{#if user.isMentor}}
+        {{#if isEditable}}
+          <a href="/course/lesson/edit/{{lesson._id}}" class="btn-fab btn-info" rel="tooltip" data-placement="left" data-original-title="Edit Lesson"><i class="material-icons">create</i></a>
+        {{/if}}
+      {{/if}}
+      <p class="card-text">{{lesson.description}}</p>
+      {{#if lesson.resource}}
+        <a href="{{lesson.resource}}" rel="tooltip" data-placement="top" data-original-title="Download resources related to the lesson" class="btn btn-info"><i class="material-icons"><i class="material-icons">play_for_work</i></i>&nbsp;&nbsp;Download Resources</a>
+      {{/if}}
+    </div>
+  </div>
+</div>

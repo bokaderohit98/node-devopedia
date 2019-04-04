@@ -1,0 +1,23 @@
+{{#each courses}}
+  <div class="col-md-4" style="margin-bottom: 2em;">
+    <div class="card">
+      <div class="card-body">
+        <img class="card-img-top" src="{{img}}">
+      </div>
+      <div class="card-content">
+        <span class="badge">{{price}}</span>
+        <h4 class="title">{{title}}</h4>
+      </div>
+      <div class="card-footer">
+        <form class="form-inline" action="/course/{{_id}}?_method=DELETE" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="btn-round" type="submit" rel="tooltip" data-placement="top" data-original-title="Delete this course"><i class="material-icons text-danger">delete</i></button>
+          <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="right" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+          <a href="/course/approve/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="top" data-original-title="Approve Course"><i class="material-icons text-success">check_circle</i></a>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{else}}
+    {{> _empty}}
+{{/each}}

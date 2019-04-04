@@ -1,0 +1,131 @@
+<div class="page-header header-filter" data-parallax="true" style=" background-image: url('/img/home/landing.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="title">Your Story Starts With Us.</h1>
+        <h4>Every great dream begins with a dreamer. Always remember, you have within you the strength, the patience, and the passion to reach for the stars to change the world.</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main main-raised" style="z-index: 100;">
+  <div class="container">
+    <div class="section text-center" id="features">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="title">Let's talk about website</h2>
+          <h5 class="description">If you are a learner willing to learn new development skills or you are an instructor with some experience under your belt, you are at the right place. At Devopedia Students meets Mentor.If you are a Mentor, you can make some bucks and if you are a student, you can pickup some new skills.</h5>
+        </div>
+      </div>
+      <div class="features">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-warning">
+                <i class="material-icons">monetization_on</i>
+              </div>
+              <h4 class="info-title">Great Value for Money</h4>
+              <p>The courses by our mentors are quite cheap compared to other resources. So, you won't scratch your hair after purchasing our courses.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-success">
+                <i class="material-icons">verified_user</i>
+              </div>
+              <h4 class="info-title">Verified Users</h4>
+              <p>All the users at devopedia are verified so you don't need to be on your toes. Just sitback and do what you are here for instead of worrying about security.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-danger">
+                <i class="material-icons">payment</i>
+              </div>
+              <h4 class="info-title">Quick Payouts</h4>
+              <p>As a mentor you don't need to worry about your payment. We assure your earnings are safe with us. And you can withdraw then whenever you want.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{!-- <div class="section text-center" id="team">
+      <h2 class="title">Here is our team</h2>
+      <div class="team">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="team-player">
+              <div class="card card-plain">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <img src="/img/home/nikhil.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                </div>
+                <h4 class="card-title">Nikhil Gupta<br><small class="card-description text-muted">Developer</small></h4>
+                <div class="card-body">
+                  <p class="card-description">Awesome and hardworking guy from beta batch, VMC.</p>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="team-player">
+              <div class="card card-plain">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <img src="/img/home/rohit.png" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                </div>
+                <h4 class="card-title">Rohit Bokade<br><small class="card-description text-muted">Developer</small></h4>
+                <div class="card-body">
+                  <p class="card-description">Lazy guy who loves cricket above anything.</p>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> --}}
+    <div class="section section-contacts" id="contact">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          {{> _messages}}
+          <h2 class="text-center title">Contact</h2>
+          <h4 class="text-center description">Have some queries? Drop them here. We are eagerly listening to you!</h4>
+          <form class="contact-form" method="post" action="/contact">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Your Name</label>
+                  <input type="text" class="form-control" name="name" value="{{newMessage.name}}">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Your Email</label>
+                  <input type="text" class="form-control" name="email" value="{{newMessage.email}}">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message" class="bmd-label-floating">Your Message</label>
+              <textarea class="form-control" rows="4" name="message">{{newMessage.message}}</textarea>
+            </div>
+            <div class="row">
+              <div class="col-md-4 ml-auto mr-auto text-center">
+                <button class="btn btn-primary btn-raised" type="submit">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="particles-container" id="particles-js">
+</div>

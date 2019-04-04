@@ -1,0 +1,26 @@
+<div class="col-sm-12">
+  <div class="card">
+    {{#each items}}
+      <div class="col-sm-12">
+        <div class="card">
+          <img src="{{course.img}}" style="width: 140px; height: auto; position: relative; bottom: 18px; left: 8px;">
+          <span class="badge" style="position: relative; bottom: 18px; left: 8px;">{{course.price}}</span>
+          <h4 style="margin-left: 16px;" class="card-title text-info">{{course.title}}</h5>
+          <form class="form-inline" action="/student/cart/{{_id}}?_method=DELETE" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn-round" style="position: absolute; right: 0; top: 0;"><i class="material-icons text-danger">clear</i></button>
+          </form>
+
+        </div>
+      </div>
+      {{else}}
+      {{> _empty}}
+    {{/each}}
+    {{#if items}}
+        <h4 style="margin-left: 32px;" class="card-title">Total: Rs. {{price}}</h5>
+          <div class="card-footer">
+            <a href="#" class="btn btn-success btn-round-max" style="width: 180px;"><i class="material-icons">payment</i>Make Payment</a>
+          </div>
+    {{/if}}
+  </div>
+</div>

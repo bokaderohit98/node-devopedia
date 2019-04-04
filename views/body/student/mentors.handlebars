@@ -1,0 +1,19 @@
+{{#each mentors}}
+  <div class="col-md-4" style="margin-bottom: 2em;">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <a href="#">
+        <img class="img" src="{{img}}"/>
+      </a>
+      </div>
+      <div class="content">
+        <h4 class="card-title">{{name}}</h4>
+        <p class="card-content">
+          {{info}}
+        </p>
+      </div>
+    </div>
+  </div>
+  {{else}}
+    {{> _empty}}
+{{/each}}

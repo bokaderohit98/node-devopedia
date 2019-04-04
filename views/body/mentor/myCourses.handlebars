@@ -1,0 +1,58 @@
+<div class="row" style="margin-bottom: 2em;">
+  <div class="col-md-4  col-md-offset-4">
+    <ul class="nav nav-pills nav-pills-icons nav-pills-primary" role="tablist">
+      <li class="active">
+        <a href="#approved" role="tab" data-toggle="tab"><i class="material-icons">done</i>approved</a>
+      </li>
+      <li>
+        <a href="#unapproved" role="tab" data-toggle="tab"><i class="material-icons">error</i>un-approved</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="approved" role="tabpanel">
+    {{#each courses.approvedCourses}}
+      <div class="col-md-4" style="margin-bottom: 3em;">
+        <div class="card">
+          <div class="card-body">
+            <img class="card-img-top" src="{{img}}">
+          </div>
+          <div class="card-content">
+            <span class="badge">{{price}}</span>
+            <h4 class="title">{{title}}</h4>
+          </div>
+          <div class="card-footer">
+            <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="right" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+            <a href="/mentor/edit-request/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="top" data-original-title="Ask for edit permission."><i class="material-icons text-info">create</i></a>
+          </div>
+        </div>
+      </div>
+      {{else}}
+        {{> _empty}}
+    {{/each}}
+  </div>
+
+  <div class="tab-pane" id="unapproved" role="tabpanel">
+    {{#each courses.unapprovedCourses}}
+      <div class="col-md-4" style="margin-bottom: 3em;">
+        <div class="card">
+          <div class="card-body">
+            <img class="card-img-top" src="{{img}}">
+          </div>
+          <div class="card-content">
+            <span class="badge">{{price}}</span>
+            <h4 class="title">{{title}}</h4>
+          </div>
+          <div class="card-footer">
+            <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="right" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+            <a href="/course/edit/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="top" data-original-title="Edit Course"><i class="material-icons text-warning">create</i></a>
+          </div>
+        </div>
+      </div>
+      {{else}}
+        {{> _empty}}
+    {{/each}}
+  </div>
+</div>

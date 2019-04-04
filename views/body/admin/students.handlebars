@@ -1,0 +1,23 @@
+{{#each students}}
+  <div class="col-md-4">
+    <div class="card card-stats">
+      <div class="card-header" data-background-color="red">
+        <i class="material-icons">person</i>
+      </div>
+      <div class="card-content">
+        <h3 class="title">{{name}}</h3>
+        <p class="category">{{email}}</p>
+        <p class="category">Registered courses {{count}}</p>
+      </div>
+      <div class="card-footer">
+        <form class="form-inline" action="/admin/students/{{_id}}?_method=DELETE" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="pull-right" type="submit" style="background: none; border: none;" rel="tooltip" data-placement="top" data-original-title="Remove Student"><i class="material-icons">delete</i></button>
+        </form>
+        <a href="/admin/reply/{{email}}" class="pull-right" rel="tooltip" data-placement="top" data-original-title="Mail Student"><i class="material-icons">reply</i></a>
+      </div>
+    </div>
+  </div>
+  {{else}}
+    {{> _empty}}
+{{/each}}

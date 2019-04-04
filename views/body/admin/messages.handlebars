@@ -1,0 +1,25 @@
+{{#each messages}}
+  <div class="col-md-6">
+    <div class="card card-stats">
+      <div class="card-header" data-background-color="orange">
+        <i class="material-icons">message</i>
+      </div>
+      <div class="card-content">
+        <p>{{message}}</p>
+        <h5 class="title">- {{name}}</h3>
+      </div>
+      <div class="card-footer">
+        <form class="form-inline" action="/admin/messages/{{_id}}?_method=DELETE" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="pull-right text-warning" type="submit" style="background: none; border: none;" rel="tooltip" data-placement="top" data-original-title="Delete"><i class="material-icons">delete</i></button>
+        </form>
+        <a href="/admin/reply/{{email}}" class="pull-right" rel="tooltip" data-placement="top" data-original-title="Reply"><i class="material-icons text-warning">reply</i></a>
+        <div class="stats">
+          <i class="material-icons">date_range</i>{{date}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{else}}
+    {{> _empty}}
+{{/each}}

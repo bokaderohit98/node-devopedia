@@ -1,0 +1,55 @@
+{{#if user.isAdmin}}
+  {{#each editRequests}}
+    <div class="col-md-6">
+      <div class="card card-stats">
+        <div class="card-header" data-background-color="black">
+          <i class="material-icons">create</i>
+        </div>
+        <div class="card-content">
+          <h5 class="title">{{title}}</h5>
+          <p>{{description}}</p>
+        </div>
+        <div class="card-footer">
+          <a href="/admin/edit-request/reject/{{_id}}" class="pull-right" rel="tooltip" data-placement="top" data-original-title="Deny edit permission."><i class="material-icons">close</i></a>
+          <a href="/admin/edit-request/approve/{{_id}}" class="pull-right" rel="tooltip" data-placement="top" data-original-title="Grant edit permission."><i class="material-icons">done</i></a>
+          <div class="stats">
+            <i class="material-icons">event_note</i>{{date}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+  {{#if editRequests}}
+  {{else}}
+    {{> _empty}}
+  {{/if}}
+{{/if}}
+
+{{#if user.isMentor}}
+  {{#each editRequests}}
+    <div class="col-md-6">
+      <div class="card card-stats">
+        <div class="card-header" data-background-color="black">
+          <i class="material-icons">create</i>
+        </div>
+        <div class="card-content">
+          <h5 class="title">{{title}}</h5>
+          <p>{{description}}</p>
+        </div>
+        <div class="card-footer">
+          <form class="form-inline" action="/mentor/edit-request/{{_id}}?_method=DELETE" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="pull-right" type="submit" style="background: none; border: none;" rel="tooltip" data-placement="top" data-original-title="Delete edit request."><i class="material-icons">delete</i></button>
+          </form>
+          <div class="stats">
+            <i class="material-icons">event_note</i>{{date}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+  {{#if editRequests}}
+  {{else}}
+    {{> _empty}}
+  {{/if}}
+{{/if}}

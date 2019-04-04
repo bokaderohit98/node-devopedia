@@ -1,0 +1,102 @@
+{{#if user.isAdmin}}
+  <div class="row" style="margin-bottom: 2em;">
+    <div class="col-md-4  col-md-offset-4">
+      <ul class="nav nav-pills nav-pills-icons nav-pills-primary" role="tablist">
+        <li class="active">
+          <a href="#approved" role="tab" data-toggle="tab"><i class="material-icons">done</i>approved</a>
+        </li>
+        <li>
+          <a href="#unapproved" role="tab" data-toggle="tab"><i class="material-icons">error</i>un-approved</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+{{/if}}
+
+<div class="tab-content">
+  {{#if user.isAdmin}}
+    <div class="tab-pane active" id="approved" role="tabpanel">
+      {{#each approvedCourseRequests}}
+        <div class="col-md-6">
+          <div class="card card-stats">
+            <div class="card-header" data-background-color="black">
+              <i class="material-icons">library_books</i>
+            </div>
+            <div class="card-content">
+              <h5 class="title">{{title}}</h5>
+              <p>{{description}}</p>
+            </div>
+            <div class="card-footer">
+              <form class="form-inline" action="/admin/course-request/{{_id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="pull-right" type="submit" style="background: none; border: none;" rel="tooltip" data-placement="top" data-original-title="Delete course request"><i class="material-icons">delete</i></button>
+              </form>
+              <div class="stats">
+                <i class="material-icons">event_note</i>{{date}}
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      {{#if approvedCourseRequests}}
+      {{else}}
+        {{> _empty}}
+      {{/if}}
+    </div>
+  {{/if}}
+
+  {{#if user.isMentor}}
+    <div class="tab-pane active" id="approved" role="tabpanel">
+      {{#each approvedCourseRequests}}
+        <div class="col-md-6">
+          <div class="card card-stats">
+            <div class="card-header" data-background-color="black">
+              <i class="material-icons">library_books</i>
+            </div>
+            <div class="card-content">
+              <h5 class="title">{{title}}</h5>
+              <p>{{description}}</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">event_note</i>{{date}}
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      {{#if approvedCourseRequests}}
+      {{else}}
+        {{> _empty}}
+      {{/if}}
+    </div>
+  {{/if}}
+
+  <div class="tab-pane" id="unapproved" role="tabpanel">
+    {{#each unapprovedCourseRequests}}
+      <div class="col-md-6">
+        <div class="card card-stats">
+          <div class="card-header" data-background-color="black">
+            <i class="material-icons">library_books</i>
+          </div>
+          <div class="card-content">
+            <h5 class="title">{{title}}</h5>
+            <p>{{description}}</p>
+          </div>
+          <div class="card-footer">
+            <form class="form-inline" action="/admin/course-request/{{_id}}?_method=DELETE" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="pull-right" type="submit" style="background: none; border: none;" rel="tooltip" data-placement="top" data-original-title="Delete course request"><i class="material-icons">delete</i></button>
+            </form>
+            <a href="/admin/course-request/approve/{{_id}}" class="pull-right" rel="tooltip" data-placement="top" data-original-title="Approve course request and forward it to mentors."><i class="material-icons">done</i></a>
+            <div class="stats">
+              <i class="material-icons">event_note</i>{{date}}
+            </div>
+          </div>
+        </div>
+      </div>
+      {{else}}
+        {{> _empty}}
+    {{/each}}
+  </div>
+</div>

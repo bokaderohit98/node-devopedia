@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="card">
+      <div class="card-header" data-background-color="red">
+        <h4 class="title">Lesson</h4>
+        {{#if add}}
+          <p class="category"> Add a Lesson</p>
+        {{else}}
+          <p class="category"> Edit Lesson</p>
+        {{/if}}
+      </div>
+      <div class="card-content">
+        {{#if add}}
+          <form action="/course/lesson/add" method="post">
+        {{else}}
+          <form action="/course/lesson/edit/{{lesson._id}}?_method=PUT" method="post">
+            <input type="hidden" name="_method" value="PUT">
+        {{/if}}
+        <input type="hidden" name="course" value="{{course}}">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group label-floating">
+              <label class="control-label">Title</label>
+              <input type="text" class="form-control" name="title" value="{{lesson.title}}">
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-12 ">
+            <div class="form-group label-floating ">
+              <label class="control-label ">Image</label>
+              <input type="text " class="form-control " name="img" value="{{lesson.img}}">
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-12 ">
+            <div class="form-group label-floating ">
+              <label class="control-label ">Video</label>
+              <input type="text " class="form-control " name="video" value="{{lesson.video}}">
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-12 ">
+            <div class="form-group label-floating ">
+              <label class="control-label ">Resource</label>
+              <input type="text " class="form-control " name="resource" value="{{lesson.resource}}">
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-12 ">
+            <div class="form-group label-floating ">
+              <label class="control-label ">Description</label>
+              <textarea name="description" class="form-control " rows="8 " style="width: 100%; ">{{lesson.description}}</textarea>
+            </div>
+          </div>
+        </div>
+        <button type="submit " class="btn btn-danger pull-right ">Submit</button>
+        <div class="clearfix "></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="col-md-12">
+  <div class="card-vid">
+    <iframe src="{{course.video}}" allowFullScreen></iframe>
+  </div>
+
+  <div class="card" style="margin-bottom: 0; padding: 0.7em;">
+    <div class="row">
+      <div class="col-sm-4" style="text-align: center">
+        <button class="btn btn-danger btn-round-max" disabled><i class="material-icons">monetization_on</i> Rs. {{course.price}}</button>
+      </div>
+      <div class="col-sm-4" style="text-align: center">
+        <button class="btn btn-warning btn-round-max" disabled><i class="material-icons">info</i> {{author}}</button>
+      </div>
+      {{#if user.isStudent}}
+        {{#if validAccess}}
+        {{else}}
+          <div class="col-sm-4" style="text-align: center">
+            <form class="form-inline" action="/course/buy" method="post">
+              <input type="hidden" name="course" value="{{course._id}}">
+              <button type="submit" class="btn btn-info btn-round-max"><i class="material-icons">add_shopping_cart</i>Buy</button>
+          </div>
+        {{/if}}
+        </form>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body" style="margin: 2em;">
+      {{#if isAuthor}}
+        {{#if editable}}
+          <nav class="fab-container">
+            <a href="/course/edit/{{course._id}}" class="buttons" rel="tooltip" data-placement="left" data-original-title="Edit Course" style="background-image: url('/img/icons/edit.png')"></a>
+            <a href="/course/lesson/add/{{course._id}}" class="buttons" rel="tooltip" data-placement="left" data-original-title="Add Lesson" style="background-image: url('/img/icons/add.png')"></a>
+            <a class="buttons" href="#" style="background-image: url('/img/icons/menu.png')"></a>
+          </nav>
+        {{else}}
+          <a href="/mentor/edit-request/{{course._id}}" class="btn-fab btn-info" rel="tooltip" data-placement="left" data-original-title="Ask for edit permission." data-toggle="modal"><i class="material-icons">create</i></a>
+        {{/if}}
+      {{/if}}
+      <p class="card-text">{{course.introduction}}</p>
+      <h4 style="margin-top: 3em;">Lessons</h4>
+      <div class="table-responsive com-md-12">
+        <table class="table table-shopping" style="margin: 0;">
+          <tbody>
+            {{#each lessons}}
+              <tr>
+                <td>
+                  <div class="img-container">
+                    <img src="{{img}}" alt="..." style="width: 75px; height: auto;">
+                  </div>
+                </td>
+                <td class="td-name">
+                  <h4>{{title}}</h4>
+                </td>
+                <td class="td-name text-right">
+                  {{#if ../validAccess}}
+                    <a href="/course/lesson/{{_id}}" class="btn btn-danger" style="padding: 0.7em;"><i class="material-icons">play_arrow</i></button>
+                      {{else}}
+                      <a href="#" class="btn" style="padding: 0.7em;"><i class="material-icons">lock</i></button>
+                  {{/if}}
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

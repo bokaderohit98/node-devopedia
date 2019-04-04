@@ -1,0 +1,98 @@
+<div class="page-header header-filter" filter-color="purple" style="background-image: url('/img/home/signup.jpg'); background-size: cover; background-position: top center;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 ml-auto mr-auto" style="margin-top: 1em">
+        {{> _messages}}
+        <div class="card card-signup">
+          <h2 class="card-title text-center">Login | Register</h2>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-5 ml-auto">
+                <form class="form" method="post" action="{{action}}/login">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="material-icons">mail</i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Email..." name="email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="material-icons">lock_outline</i></span>
+                      </div>
+                      <input type="password" placeholder="Password..." class="form-control" name="password">
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-round">Login</button>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5 mr-auto">
+                {{#if isAdmin}}
+                  <div class="info info-horizontal">
+                    <div class="icon icon-rose">
+                      <i class="material-icons">timeline</i>
+                    </div>
+                    <div class="description">
+                      <h4 class="info-title">Get Engaged</h4>
+                      <p class="description">
+                        As a responsible admin review courses, manage mentors and studens and respondd to queries.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="info info-horizontal">
+                    <div class="icon icon-primary">
+                      <i class="material-icons">code</i>
+                    </div>
+                    <div class="description">
+                      <h4 class="info-title">Interactive Design</h4>
+                      <p class="description">
+                        The portal provides you with a simplified user interface to make your life easy as an admin, which lets you to focus more on your work.
+                      </p>
+                    </div>
+                  </div>
+                {{else}}
+                  <form class="form" method="post" action="{{action}}/register">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="material-icons">face</i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Name..." name="name" value="{{newUser.name}}">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="material-icons">mail</i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Email..." name="email" value="{{newUser.email}}">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="material-icons">lock_outline</i></span>
+                        </div>
+                        <input type="password" placeholder="Password..." class="form-control" name="password" value="{{newUser.password}}">
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary btn-round">Register</button>
+                    </div>
+                  </form>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="particles-container-signup" id="particles-js">
+
+</div>

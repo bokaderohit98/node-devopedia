@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="card">
+      <div class="card-header" data-background-color="orange">
+        <h4 class="title">Make an Edit Request</h4>
+      </div>
+      <div class="card-content">
+        <form action="/mentor/edit-request/{{course}}" method="post">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group label-floating">
+                <label class="control-label">Describe what want to edit</label>
+                <textarea name="description" class="form-control" rows="8" style="width: 100%;"></textarea>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-warning">Submit Edit Request</button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

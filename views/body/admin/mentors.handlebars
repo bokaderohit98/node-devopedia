@@ -1,0 +1,26 @@
+{{#each mentors}}
+  <div class="col-md-4" style="margin-bottom: 2em; margin-top: 1.5em;">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <a href="#">
+        <img class="img" src="{{img}}"/>
+      </a>
+      </div>
+      <div class="content">
+        <h4 class="card-title">{{name}}</h4>
+        <p class="card-content">
+          {{info}}
+        </p>
+      </div>
+      <div class="card-footer">
+        <form class="form-inline" action="/admin/mentors/{{_id}}?_method=DELETE" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="pull-right" type="submit" style="background: none; border: none;" rel="tooltip" data-placement="top" data-original-title="Delete Mentor"><i class=" material-icons ">delete</i></button>
+        </form>
+        <a href="/admin/reply/{{email}}" class="pull-right" rel="tooltip" data-placement="top" data-original-title="Mail"><i class="material-icons">reply</i></a>
+      </div>
+    </div>
+  </div>
+  {{else}}
+    {{> _empty}}
+{{/each}}

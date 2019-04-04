@@ -1,0 +1,17 @@
+{{#each courses}}
+  <div class="col-md-4" style="margin-bottom: 2em;">
+    <div class="card">
+      <div class="card-body">
+        <img class="card-img-top" src="{{img}}">
+      </div>
+      <div class="card-content">
+        <h4 class="card-title">{{title}}</h4>
+      </div>
+      <div class="card-footer">
+        <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="right" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+      </div>
+    </div>
+  </div>
+  {{else}}
+    {{> _empty}}
+{{/each}}

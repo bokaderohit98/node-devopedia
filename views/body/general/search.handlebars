@@ -1,0 +1,264 @@
+{{!-- FOR ADMIN --}}
+{{#if user.isAdmin}}
+  {{!-- Approved courses --}}
+  <div class="container-fluid">
+    {{#if approvedCourses}}
+      <h4 class="title">Approved Courses</h4>
+      {{#each approvedCourses}}
+        <div class="col-md-4" style="margin-bottom: 2em;">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <span class="badge">{{price}}</span>
+              <h4 class="title">{{title}}</h4>
+            </div>
+            <div class="card-footer">
+              <form class="form-inline" action="/course/{{_id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn-round" rel="tooltip" data-placement="top" data-original-title="Delete this course" style="background: none; border: none;"><i class="material-icons text-danger">delete</i></button>
+                <a href="/course/content/{{_id}}" class="pull-right btn-round" class="btn btn-info" rel="tooltip" data-placement="left" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+              </form>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  {{!-- Unapproved Courses --}}
+  <div class="container-fluid">
+    {{#if unapprovedCourses}}
+      <h4 class="title">Unapproved Courses</h4>
+      {{#each unapprovedCourses}}
+        <div class="col-md-4" style="margin-bottom: 2em;">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <span class="badge">{{price}}</span>
+              <h4 class="title">{{title}}</h4>
+            </div>
+            <div class="card-footer">
+              <form class="form-inline" action="/course/{{_id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" rel="tooltip" class="btn-round" data-placement="top" data-original-title="Delete this course"><i class="material-icons text-danger">delete</i></button>
+                <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="left" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i> </a>
+                <a href="/course/approve/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="top" data-original-title="Approve and publish this course"><i class="material-icons text-success">check_circle</i></a>
+              </form>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  {{!-- Students --}}
+  <div class="container-fluid">
+    {{#if students}}
+      <h4 class="title">Students</h4>
+      {{#each students}}
+        <div class="col-md-4">
+          <div class="card card-stats">
+            <div class="card-header" data-background-color="red">
+              <i class="material-icons">person</i>
+            </div>
+            <div class="card-content">
+              <h3 class="title">{{name}}</h3>
+              <p class="category">{{email}}</p>
+              <p class="category">Registered courses {{count}}</p>
+            </div>
+            <div class="card-footer">
+              <form class="form-inline" action="/admin/students/{{_id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="pull-right" type="submit" style="background: none; border: none;" rel="tooltip" data-placement="top" data-original-title="Remove Student"><i class="material-icons">delete</i></button>
+              </form>
+              <a href="/admin/reply/{{email}}" class="pull-right" rel="tooltip" data-placement="top" data-original-title="Mail Student"><i class="material-icons">reply</i></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  {{!-- Mentors --}}
+  <div class="container-fluid">
+    {{#if mentors}}
+      <h4 class="title">Mentors</h4>
+      {{#each mentors}}
+        <div class="col-md-4" style="margin-bottom: 2em; margin-top: 1.5em;">
+          <div class="card card-profile">
+            <div class="card-avatar">
+              <a href="#">
+            <img class="img" src="{{img}}"/>
+          </a>
+            </div>
+            <div class="content">
+              <h4 class="card-title">{{name}}</h4>
+              <p class="card-content">
+                {{info}}
+              </p>
+            </div>
+            <div class="card-footer">
+              <form class="form-inline" action="/admin/mentors/{{_id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="pull-right" type="submit" style="background: none; border: none;" rel="tooltip" data-placement="top" data-original-title="Delete Mentor"><i class=" material-icons ">delete</i></button>
+              </form>
+              <a href="/admin/reply/{{email}}" class="pull-right" rel="tooltip" data-placement="top" data-original-title="Mail"><i class="material-icons">reply</i></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+{{/if}}
+
+
+{{!-- FOR STUDENT --}}
+{{#if user.isStudent}}
+
+  {{!-- Courses purchased by student --}}
+  <div class="container-fluid">
+    {{#if myCourses}}
+      <h4 class="title">My Courses</h4>
+      {{#each myCourses}}
+        <div class="col-md-4" style="margin-bottom: 2em;">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <h4 class="card-title">{{title}}</h4>
+            </div>
+            <div class="card-footer">
+              <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="left" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  {{!-- All available courses --}}
+  <div class="container-fluid">
+    {{#if courses}}
+      <h4 class="title">All Courses</h4>
+      {{#each courses}}
+        <div class="col-md-4" style="margin-bottom: 2em;">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <span class="badge">{{price}}</span>
+              <h4 class="card-title">{{title}}</h4>
+            </div>
+            <div class="card-footer">
+              <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="left" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+{{/if}}
+
+
+{{!-- FOR MENTORS --}}
+{{#if user.isMentor}}
+
+  {{!-- Approved courses --}}
+  <div class="container-fluid">
+    {{#if approvedCourses}}
+      <h4 class="title">My Courses: Approved</h4>
+      {{#each approvedCourses}}
+        <div class="col-md-4" style="margin-bottom: 3em;">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <span class="badge">{{price}}</span>
+
+              <h4 class="title">{{title}}</h4>
+            </div>
+            <div class="card-footer">
+              <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="left" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+              <a href="/mentor/edit-request/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="top" data-original-title="Ask for edit permission."><i class="material-icons text-info">create</i></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  {{!-- Unapproved Courses --}}
+  <div class="container-fluid">
+    {{#if unapprovedCourses}}
+      <h4 class="title">My Courses: Un-approved</h4>
+      {{#each unapprovedCourses}}
+        <div class="col-md-4" style="margin-bottom: 3em;">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <span class="badge">{{price}}</span>
+              <h4 class="title">{{title}}</h4>
+            </div>
+            <div class="card-footer">
+              <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="left" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+              <a href="/course/edit/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="top" data-original-title="Edit Course"><i class="material-icons text-info">create</i></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  {{!-- All Courses --}}
+  <div class="container-fluid">
+    {{#if courses}}
+      <h4 class="title">All Courses</h4>
+      {{#each courses}}
+        <div class="col-md-4" style="margin-bottom: 3em;">
+          <div class="card">
+            <div class="card-body">
+              <img class="card-img-top" src="{{img}}">
+            </div>
+            <div class="card-content">
+              <span class="badge">{{price}}</span>
+              <h4 class="title">{{title}}</h4>
+            </div>
+            <div class="card-footer">
+              <a href="/course/content/{{_id}}" class="btn-round pull-right" rel="tooltip" data-placement="left" data-original-title="See introductory video, price, author and everything else about the course"><i class="material-icons">arrow_forward</i></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+{{/if}}
+
+{{!-- NO RESULTS --}}
+{{#if courses}}
+{{else}}
+  {{#if approvedCourses}}
+  {{else}}
+    {{#if unapprovedCourses}}
+    {{else}}
+      {{#if myCourses}}
+      {{else}}
+        {{#if students}}
+        {{else}}
+          {{#if mentors}}
+          {{else}}
+            {{> _empty}}
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    {{/if}}
+  {{/if}}
+{{/if}}
